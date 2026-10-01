@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажёр по русскому языку: Подлежащее и Сказуемое</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', 'Comic Neue', sans-serif;
+            background-color: #f0fdf4;
+            background-image: radial-gradient(#bbf7d0 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        /* Стили для подчеркивания членов предложения */
+        .underline-one {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        .underline-two {
+            border-bottom: 4px double #dc2626;
+            padding-bottom: 1px;
+            color: #991b1b;
+            font-weight: bold;
+        }
+
+        /* Анимации */
+        @keyframes bounce-short {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .animate-bounce-short {
+            animation: bounce-short 0.4s ease infinite;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between text-slate-800 p-3 sm:p-6">
+
+    <div class="max-w-4xl mx-auto w-full space-y-6">
+        
+        <!-- Заголовок страницы -->
+        <header class="text-center space-y-2">
+            <div class="inline-block bg-yellow-300 text-yellow-900 font-extrabold px-4 py-1 rounded-full text-sm uppercase tracking-wider shadow-sm mb-1">
+                2 Класс • Русский язык ✏️
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-emerald-700 tracking-tight">
+                Подлежащее и Сказуемое
+            </h1>
+            <p class="text-base sm:text-lg text-emerald-800 font-bold">
+                Учим Главные Члены Предложения Весело! (почти)🚀
+            </p>
+        </header>
+
+        <!-- Правило и Шпаргалка -->
+        <section class="bg-white rounded-3xl p-5 sm:p-7 card-shadow border-4 border-emerald-200 relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none text-9xl">
+                📚
+            </div>
+            
+            <h2 class="text-2xl font-black text-emerald-700 mb-4 flex items-center gap-2">
+                <span>📖</span> Памятка-шпаргалка
+            </h2>
+
+            <!-- Полное правило -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+                <!-- Подлежащее -->
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-blue-700">1. Подлежащее</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-0.5 rounded-full text-xs font-black">Кто? Что?</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Обозначает, <b>о ком или о чём</b> говорится в предложении.
+                    </p>
+                    <div class="bg-white p-2.5 rounded-xl border border-blue-100 text-sm">
+                        ✏️ Подчёркиваем <span class="underline-one">одной чертой</span>.
+                    </div>
+                </div>
+
+                <!-- Сказуемое -->
+                <div class="bg-rose-50 border-2 border-rose-200 rounded-2xl p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-rose-700">2. Сказуемое</span>
+                        <span class="bg-rose-200 text-rose-800 px-3 py-0.5 rounded-full text-xs font-black">Что делает?</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Показывает, <b>что делает</b> подлежащее (действие).
+                    </p>
+                    <div class="bg-white p-2.5 rounded-xl border border-rose-100 text-sm">
+                        ✏️ Подчёркиваем <span class="underline-two">двумя чертами</span>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пример шпаргалки -->
+            <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 text-center">
+                <p class="text-xs font-extrabold text-amber-800 uppercase tracking-wider mb-1">Пример предложения:</p>
+                <p class="text-xl sm:text-2xl font-black text-slate-800 tracking-wide">
+                    Весёлый <span class="underline-one">Колобок</span> <span class="underline-two">катится</span> по дорожке.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2">
+                    (Кто?) <span class="font-bold text-blue-700">Колобок</span> — подлежащее. (Что делает?) <span class="font-bold text-rose-700">катится</span> — сказуемое.
+                </p>
+            </div>
+        </section>
+
+        <!-- Блок Игры/Теста -->
+        <main id="quiz-container" class="bg-white rounded-3xl p-5 sm:p-8 card-shadow border-4 border-indigo-200 relative">
+            
+            <!-- Индикаторы прогресса -->
+            <div class="flex flex-wrap justify-between items-center mb-6 gap-3 border-b-2 border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">⭐</span>
+                    <span id="score-display" class="font-black text-xl text-amber-500">Баллы: 0</span>
+                </div>
+                <div class="text-slate-500 font-bold text-sm sm:text-base">
+                    Вопрос <span id="current-q-num" class="text-indigo-600 font-black">1</span> из <span id="total-q-num">20</span>
+                </div>
+            </div>
+
+            <!-- Шкала прогресса -->
+            <div class="w-full bg-slate-100 h-3.5 rounded-full overflow-hidden mb-6">
+                <div id="progress-bar" class="bg-indigo-500 h-full transition-all duration-300 rounded-full" style="width: 5%"></div>
+            </div>
+
+            <!-- Текст предложения и вопрос -->
+            <div id="question-box" class="text-center space-y-4 mb-6">
+                <div class="inline-block bg-indigo-50 text-indigo-700 font-extrabold px-4 py-1.5 rounded-2xl text-xs sm:text-sm uppercase tracking-wider">
+                    Предложение:
+                </div>
+                <div id="sentence-display" class="text-2xl sm:text-4xl font-black text-slate-800 bg-slate-50 p-4 rounded-2xl border-2 border-dashed border-indigo-200 tracking-wide">
+                    Загрузка...
+                </div>
+                <h3 id="question-text" class="text-lg sm:text-2xl font-bold text-indigo-900 pt-2">
+                    Вопрос загружается...
+                </h3>
+            </div>
+
+            <!-- Варианты ответов -->
+            <div id="options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
+                <!-- Опции генерируются через JS -->
+            </div>
+
+            <!-- Блок обратной связи -->
+            <div id="feedback-box" class="hidden rounded-2xl p-4 sm:p-5 mb-6 border-2">
+                <div class="flex items-start gap-3">
+                    <span id="feedback-icon" class="text-3xl"></span>
+                    <div class="space-y-1">
+                        <h4 id="feedback-title" class="text-lg font-black"></h4>
+                        <p id="feedback-text" class="text-sm sm:text-base font-semibold leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка дальше -->
+            <div class="flex justify-end">
+                <button id="next-btn" onclick="nextQuestion()" class="hidden bg-emerald-500 hover:bg-emerald-600 text-white font-black px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 text-lg flex items-center gap-2">
+                    <span>Следующий вопрос</span>
+                    <span>➡️</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Финальный экран (скрыт по умолчанию) -->
+        <section id="result-screen" class="hidden bg-white rounded-3xl p-6 sm:p-10 card-shadow border-4 border-yellow-300 text-center space-y-6">
+            <div class="text-6xl sm:text-8xl animate-bounce-short">🏆</div>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-800">Отличная работа!</h2>
+            <p class="text-lg sm:text-xl font-bold text-slate-600">
+                Ты прошёл весь тренажёр по подлежащему и сказуемому! Иди поиграй в Роблакс!🤗
+            </p>
+            
+            <div class="bg-amber-50 border-2 border-amber-200 rounded-3xl p-6 max-w-sm mx-auto space-y-2">
+                <div class="text-sm font-extrabold text-amber-700 uppercase tracking-wider">Твой результат:</div>
+                <div class="text-4xl sm:text-5xl font-black text-amber-500" id="final-score">0 / 20</div>
+                <p id="final-message" class="text-sm font-bold text-slate-700 pt-2"></p>
+            </div>
+
+            <button onclick="restartQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-black px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 text-lg inline-flex items-center gap-2">
+                <span>🔄 Пройти ещё раз</span>
+            </button>
+        </section>
+
+    </div>
+
+    <footer class="text-center text-xs font-bold text-emerald-800 mt-8 mb-2">
+        Учебный тренажёр для 2 класса • Русский язык 🌟
+    </footer>
+
+    <script>
+        // База из 20 вопросов для 2 класса
+        const questionsData = [
+            {
+                sentence: "Колобок повесился.",
+                question: "Найди ПОДЛЕЖАЩЕЕ в этом предложении:",
+                options: ["Колобок", "повесился", "Нет подлежащего", "Бывает"],
+                correct: 0,
+                explain: "<b>Колобок</b> — это подлежащее, потому что отвечает на вопрос <i>Кто?</i> и подчёркивается <span class='underline-one'>одной чертой</span>."
+            },
+            {
+                sentence: "Весёлый 🐱 кот мурчит.",
+                question: "Найди СКАЗУЕМОЕ в этом предложении:",
+                options: ["Весёлый", "кот", "мурчит", "🐱"],
+                correct: 2,
+                explain: "<b>мурчит</b> — это сказуемое, потому что отвечает на вопрос <i>Что делает?</i> и подчёркивается <span class='underline-two'>двумя чертами</span>."
+            },
+            {
+                sentence: "Хитрый лис украл сыр.",
+                question: "На какой вопрос отвечает слово 'лис'?",
+                options: ["Что сделает?", "Кто?", "Какой?", "Что?"],
+                correct: 1,
+                explain: "Слово <b>лис</b> отвечает на вопрос <i>Кто?</i> — это подлежащее (живой предмет)."
+            },
+            {
+                sentence: "Яблоко упало с ветки.",
+                question: "На какой вопрос отвечает слово 'упало'?",
+                options: ["Что?", "Что сделало?", "Какой?", "Куда?"],
+                correct: 1,
+                explain: "Слово <b>упало</b> отвечает на вопрос <i>Что сделало?</i> — это сказуемое (действие)."
+            },
+            {
+                sentence: "Громкий будильник звонит.",
+                question: "Как подчеркивается слово 'будильник'?",
+                options: ["Одной чертой ➖", "Двумя чертами ═", "Волнистой линией 〰️", "Пунктиром ╌"],
+                correct: 0,
+                explain: "<b>будильник</b> — подлежащее (<i>Что?</i>), поэтому подчёркивается <span class='underline-one'>одной чертой</span>."
+            },
+            {
+                sentence: "Собака громко лает.",
+                question: "Как подчеркивается слово 'лает'?",
+                options: ["Одной чертой ➖", "Двумя чертами ═", "Не подчёркивается", "Волнистой линией 〰️"],
+                correct: 1,
+                explain: "<b>лает</b> — сказуемое (<i>Что делает?</i>), поэтому подчёркивается <span class='underline-two'>двумя чертами</span>."
+            },
+            {
+                sentence: "Ученик пишет в тетради.",
+                question: "Каким членом предложения является слово 'Ученик'?",
+                options: ["Сказуемое", "Подлежащее", "Второстепенный член", "Предлог"],
+                correct: 1,
+                explain: "<b>Ученик</b> — главный член предложения, <b>подлежащее</b> (<i>Кто?</i>)."
+            },
+            {
+                sentence: "Врач лечит детей.",
+                question: "Каким членом предложения является слово 'лечит'?",
+                options: ["Подлежащее", "Сказуемое", "Второстепенный член", "Прилагательное"],
+                correct: 1,
+                explain: "<b>лечит</b> — главный член предложения, <b>сказуемое</b> (<i>Что делает?</i>)."
+            },
+            {
+                sentence: "Быстрый зайчик прыгает.",
+                question: "Найди ПОДЛЕЖАЩЕЕ в предложении:",
+                options: ["Быстрый", "зайчик", "прыгает", "Трава"],
+                correct: 1,
+                explain: "<b>зайчик</b> — подлежащее (<i>Кто?</i>), главное действующее лицо."
+            },
+            {
+                sentence: "Маленькая мышка прячется.",
+                question: "Найди СКАЗУЕМОЕ в предложении:",
+                options: ["Маленькая", "мышка", "прячется", "Норка"],
+                correct: 2,
+                explain: "<b>прячется</b> — сказуемое, обозначает действие мышки (<i>Что делает?</i>)."
+            },
+            {
+                sentence: "Солнце ярко светит.",
+                question: "На какой вопрос отвечает слово 'Солнце'?",
+                options: ["Кто?", "Что?", "Что делает?", "Какое?"],
+                correct: 1,
+                explain: "<b>Солнце</b> — неживой предмет, отвечает на вопрос <i>Что?</i> и является подлежащим."
+            },
+            {
+                sentence: "Птицы улетели на юг.",
+                question: "На какой вопрос отвечает слово 'улетели'?",
+                options: ["Что сделали?", "Что делают?", "Кто?", "Куда?"],
+                correct: 0,
+                explain: "Слово <b>улетели</b> отвечает на вопрос <i>Что сделали?</i> — это сказуемое."
+            },
+            {
+                sentence: "Бабушка печёт вкусный пирог.",
+                question: "Как подчёркивается слово 'печёт'?",
+                options: ["Одной чертой ➖", "Двумя чертами ═", "Кружочком ⭕", "Не подчёркивается"],
+                correct: 1,
+                explain: "Слово <b>печёт</b> — сказуемое (<i>Что делает?</i>), подчёркивается <span class='underline-two'>двумя чертами</span>."
+            },
+            {
+                sentence: "Машина едет по дороге.",
+                question: "Как подчёркивается слово 'Машина'?",
+                options: ["Одной чертой ➖", "Двумя чертами ═", "Волнистой линией 〰️", "Крестиком ❌"],
+                correct: 0,
+                explain: "Слово <b>Машина</b> — подлежащее (<i>Что?</i>), подчёркивается <span class='underline-one'>одной чертой</span>."
+            },
+            {
+                sentence: "Храбрый рыцарь победил дракона.",
+                question: "Найди ПОДЛЕЖАЩЕЕ:",
+                options: ["Храбрый", "рыцарь", "победил", "дракона"],
+                correct: 1,
+                explain: "<b>рыцарь</b> — подлежащее (<i>Кто?</i>), выполняет действие в предложении."
+            },
+            {
+                sentence: "Настя громко смеётся.",
+                question: "Найди СКАЗУЕМОЕ:",
+                options: ["Настя", "громко", "смеётся", "Смех"],
+                correct: 2,
+                explain: "<b>смеётся</b> — сказуемое (<i>Что делает?</i>), показывает действие Насти."
+            },
+            {
+                sentence: "Ракета летит в космос.",
+                question: "Каким членом предложения является слово 'Ракета'?",
+                options: ["Подлежащее", "Сказуемое", "Сказуемое и подлежащее", "Второстепенный член"],
+                correct: 0,
+                explain: "<b>Ракета</b> — это <b>подлежащее</b>, так как отвечает на вопрос <i>Что?</i>."
+            },
+            {
+                sentence: "Художник рисует картину.",
+                question: "Каким членом предложения является слово 'рисует'?",
+                options: ["Подлежащее", "Сказуемое", "Существительное", "Второстепенный член"],
+                correct: 1,
+                explain: "<b>рисует</b> — это <b>сказуемое</b>, так как обозначает действие художника."
+            },
+            {
+                sentence: "Пухлый Беляш гавкает.",
+                question: "На какой вопрос отвечает слово Беляш?",
+                options: ["Что делает?", "Кто?", "Какой?", "Что?"],
+                correct: 1,
+                explain: "Слово <b>Беляш</b> отвечает на вопрос <i>Кто?</i> — это подлежащее."
+            },
+            {
+                sentence: "Дети весело играют.",
+                question: "На какой вопрос отвечает слово 'играют'?",
+                options: ["Что делают?", "Кто?", "Что сделают?", "Как?"],
+                correct: 0,
+                explain: "Слово <b>играют</b> отвечает на вопрос <i>Что делают?</i> — это сказуемое."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        // Инициализация звуковых эффектов через Web Audio API
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(isCorrect) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (isCorrect) {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                osc.frequency.exponentialRampToValueAtTime(659.25, audioCtx.currentTime + 0.15); // E5
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
+                osc.frequency.exponentialRampToValueAtTime(146.83, audioCtx.currentTime + 0.2); // D3
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            }
+        }
+
+        function loadQuestion() {
+            answered = false;
+            const data = questionsData[currentQuestion];
+
+            // Обновляем шапку прогресса
+            document.getElementById('current-q-num').innerText = currentQuestion + 1;
+            document.getElementById('total-q-num').innerText = questionsData.length;
+            document.getElementById('score-display').innerText = `Баллы: ${score}`;
+            
+            const progressPercent = ((currentQuestion + 1) / questionsData.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+            // Текст предложения и вопрос
+            document.getElementById('sentence-display').innerText = data.sentence;
+            document.getElementById('question-text').innerText = data.question;
+
+            // Скрываем блок фидбека и кнопку Дальше
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+
+            // Генерация кнопок ответов
+            const optionsGrid = document.getElementById('options-grid');
+            optionsGrid.innerHTML = '';
+
+            data.options.forEach((optText, index) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-2xl border-2 border-slate-200 bg-white hover:bg-indigo-50 hover:border-indigo-300 font-bold text-slate-700 text-base sm:text-lg transition-all transform active:scale-98 flex items-center justify-between";
+                btn.innerHTML = `
+                    <span>${optText}</span>
+                    <span class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-xs text-transparent font-black check-mark">✓</span>
+                `;
+                btn.onclick = () => selectOption(index);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedIndex) {
+            if (answered) return;
+            answered = true;
+
+            const data = questionsData[currentQuestion];
+            const isCorrect = selectedIndex === data.correct;
+            const optionsGrid = document.getElementById('options-grid');
+            const buttons = optionsGrid.children;
+
+            playSound(isCorrect);
+
+            if (isCorrect) {
+                score += 5;
+                document.getElementById('score-display').innerText = `Баллы: ${score}`;
+            }
+
+            // Подсветка кнопок
+            Array.from(buttons).forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-indigo-50', 'hover:border-indigo-300');
+
+                if (idx === data.correct) {
+                    btn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+                    const mark = btn.querySelector('.check-mark');
+                    mark.classList.remove('border-slate-300', 'text-transparent');
+                    mark.classList.add('bg-emerald-500', 'border-emerald-500', 'text-white');
+                } else if (idx === selectedIndex && !isCorrect) {
+                    btn.classList.add('bg-rose-100', 'border-rose-400', 'text-rose-900');
+                } else {
+                    btn.classList.add('opacity-50');
+                }
+            });
+
+            // Показываем обратную связь
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackIcon = document.getElementById('feedback-icon');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackText = document.getElementById('feedback-text');
+
+            feedbackBox.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-300', 'text-emerald-900', 'bg-rose-50', 'border-rose-300', 'text-rose-900');
+
+            if (isCorrect) {
+                feedbackBox.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-900');
+                feedbackIcon.innerText = '🎉';
+                feedbackTitle.innerText = 'Правильно! Молодец!';
+            } else {
+                feedbackBox.classList.add('bg-rose-50', 'border-rose-300', 'text-rose-900');
+                feedbackIcon.innerText = '💡';
+                feedbackTitle.innerText = 'Уппс, не так! Голову включаем! ';
+            }
+
+            feedbackText.innerHTML = data.explain;
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questionsData.length) {
+                loadQuestion();
+            } else {
+                showFinalResults();
+            }
+        }
+
+        function showFinalResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            const resultScreen = document.getElementById('result-screen');
+            resultScreen.classList.remove('hidden');
+
+            document.getElementById('final-score').innerText = `${score} / 100`;
+
+            const messageElem = document.getElementById('final-message');
+            if (score === 100) {
+                messageElem.innerText = "Идеально! Ты настоящий знаток подлежащего и сказуемого! Возьми с полки пирожок!🌟5+";
+            } else if (score >= 70) {
+                messageElem.innerText = "Отличный результат! Ты норм!👍4+";
+            } else {
+                messageElem.innerText = "Хорошая попытка! Перечитай шпаргалку и попробуй ещё раз, у тебя всё получится! (нет)💪";
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // Запуск при загрузке страницы
+        window.onload = function() {
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
